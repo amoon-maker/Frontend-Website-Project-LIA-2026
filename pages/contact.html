@@ -116,55 +116,61 @@
 
             <div class="form-row">
               <div class="form-field">
-                <label for="name">Nom</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  maxlength="100"
-                  placeholder="Ton nom"
-                  required
-                />
-              </div>
+  <label for="name">Nom</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    maxlength="100"
+    placeholder="Ton nom"
+    required
+    aria-describedby="nameError"
+  />
+  <small id="nameError" class="field-error"></small>
+</div>
 
               <div class="form-field">
-                <label for="email">Courriel</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  maxlength="120"
-                  placeholder="toncourriel@email.com"
-                  required
-                />
-              </div>
+  <label for="email">Courriel</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    maxlength="120"
+    placeholder="toncourriel@email.com"
+    required
+    aria-describedby="emailError"
+  />
+  <small id="emailError" class="field-error"></small>
+</div>
             </div>
 
             <div class="form-field">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="7"
-                maxlength="1000"
-                placeholder="Écris ton message ici..."
-                required
-              ></textarea>
-              <div class="form-meta">
-                <small id="messageCount">0 / 1000</small>
-              </div>
-            </div>
+  <label for="message">Message</label>
+  <textarea
+    id="message"
+    name="message"
+    rows="7"
+    maxlength="1000"
+    placeholder="Écris ton message ici..."
+    required
+    aria-describedby="messageError messageCount"
+  ></textarea>
+  <small id="messageError" class="field-error"></small>
+  <div class="form-meta">
+    <small id="messageCount">0 / 1000</small>
+  </div>
+</div>
 
             <p class="form-note">
               En envoyant ce message, tu acceptes d’être recontactée par courriel.
             </p>
 
             <div class="form-actions">
-              <button type="submit" class="booking-button form-submit">
-                Envoyer le message
-              </button>
-              <p id="formStatus" class="form-status" aria-live="polite"></p>
-            </div>
+  <button type="submit" class="booking-button form-submit" id="formSubmitButton">
+    Envoyer le message
+  </button>
+  <p id="formStatus" class="form-status" aria-live="polite"></p>
+</div>
           </form>
         </div>
       </div>

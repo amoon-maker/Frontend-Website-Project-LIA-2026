@@ -122,15 +122,36 @@ section {
 }
 
 .site-nav a {
+  position: relative;
+  display: inline-block;
   font-size: 1.16rem;
   letter-spacing: 0.03em;
   color: var(--text);
-  transition: opacity 0.25s ease;
+  padding-bottom: 0.2rem;
+  transition: opacity 0.28s ease, color 0.28s ease,
+    transform 0.28s ease;
 }
 
-.site-nav a:hover,
+.site-nav a:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
 .site-nav a[aria-current="page"] {
-  opacity: 0.75;
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.site-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.15rem;
+  width: 1.6rem;
+  height: 1px;
+  background-color: var(--heading);
+  transform: translateX(-50%);
+  opacity: 0.9;
 }
 
 .menu-toggle {
@@ -329,12 +350,18 @@ section {
   color: #f7f2ea;
   border-radius: 0.85rem;
   font-size: 1.03rem;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+    opacity 0.28s ease, background-color 0.28s ease;
 }
 
 .booking-button:hover {
-  opacity: 0.94;
-  transform: translateY(-1px);
+  opacity: 0.98;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(74, 63, 54, 0.14);
+}
+
+.booking-button:active {
+  transform: translateY(0);
 }
 
 .testimonials-section {
@@ -354,6 +381,14 @@ section {
   padding: 2.3rem 2rem;
   text-align: center;
   color: var(--text);
+  transition: transform 0.32s ease, box-shadow 0.32s ease,
+    background-color 0.32s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(74, 63, 54, 0.08);
+  background-color: #e7d8bc;
 }
 
 .testimonial-card p {
@@ -486,6 +521,41 @@ section {
   min-width: 260px;
 }
 
+.booking-box-action {
+  margin-top: 1.4rem;
+}
+
+.booking-microcopy {
+  margin-top: 1rem;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: rgba(75, 64, 55, 0.82);
+}
+
+.booking-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.step-card {
+  min-height: 220px;
+}
+
+.step-number {
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(75, 64, 55, 0.72);
+  margin-bottom: 0.8rem;
+}
+
+.step-card h3 {
+  margin-bottom: 0.8rem;
+}
+
 .stack {
   display: grid;
   gap: 1.25rem;
@@ -493,10 +563,90 @@ section {
   margin: 0 auto;
 }
 
+.faq-stack {
+  max-width: 680px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.4rem;
+}
+
+.faq-stack .content-box {
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item {
+  background-color: rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(90, 76, 64, 0.08);
+  transition: transform 0.32s ease, box-shadow 0.32s ease,
+    background-color 0.32s ease, border-color 0.32s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(74, 63, 54, 0.07);
+  background-color: rgba(255, 255, 255, 0.32);
+  border-color: rgba(90, 76, 64, 0.12);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.8rem 1.8rem;
+  text-align: left;
+  cursor: pointer;
+  color: var(--heading);
+}
+
+.faq-question span:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.faq-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 1.8rem 1.8rem;
+}
+
+.faq-answer p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
 .content-box {
   background-color: rgba(255, 255, 255, 0.24);
   border: 1px solid rgba(90, 76, 64, 0.08);
   padding: 2rem;
+  transition: transform 0.32s ease, box-shadow 0.32s ease,
+    background-color 0.32s ease, border-color 0.32s ease;
+}
+
+.content-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(74, 63, 54, 0.08);
+  background-color: rgba(255, 255, 255, 0.32);
+  border-color: rgba(90, 76, 64, 0.12);
 }
 
 .content-box h3 {
@@ -519,13 +669,18 @@ section {
   padding: 0.9rem 1.3rem;
   border-radius: 999px;
   border: 1px solid var(--accent-dark);
-  transition: opacity 0.25s ease, transform 0.25s ease,
-    background-color 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+    opacity 0.28s ease, background-color 0.28s ease;
 }
 
 .btn:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
+  opacity: 0.98;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(74, 63, 54, 0.12);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
@@ -538,15 +693,6 @@ section {
   color: var(--accent-dark);
 }
 
-.faq-stack {
-  max-width: 680px;
-  margin: 0 auto;
-  gap: 2.4rem;
-}
-
-.faq-stack .content-box {
-  padding: 2rem 1.8rem;
-}
 
 /* Reusable justify helper */
 .justify-text,
@@ -597,6 +743,9 @@ section {
     gap: 2.3rem;
   }
   .booking-grid {
+  grid-template-columns: 1fr;
+}
+.booking-steps {
   grid-template-columns: 1fr;
 }
 
@@ -716,6 +865,40 @@ section {
 
 .contact-form-panel .content-box {
   padding: 2.4rem;
+}
+
+.field-error {
+  min-height: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: #8c3a34;
+}
+
+.form-field input.input-invalid,
+.form-field textarea.input-invalid {
+  border-color: rgba(140, 58, 52, 0.45);
+  background-color: rgba(255, 245, 244, 0.8);
+  box-shadow: 0 0 0 3px rgba(140, 58, 52, 0.08);
+}
+
+.form-field input.input-valid,
+.form-field textarea.input-valid {
+  border-color: rgba(47, 107, 72, 0.35);
+}
+
+.form-submit:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-status.success {
+  color: #2f6b48;
+}
+
+.form-status.error {
+  color: #8c3a34;
 }
 
 .form-box {
@@ -995,6 +1178,18 @@ section {
 
   .footer-contact h3 {
     font-size: 1.7rem;
+  }
+}
+
+@media (hover: none) {
+  .content-box:hover,
+  .testimonial-card:hover,
+  .faq-item:hover,
+  .booking-button:hover,
+  .btn:hover,
+  .site-nav a:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 

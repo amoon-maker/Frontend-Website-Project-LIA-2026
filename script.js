@@ -45,18 +45,55 @@ revealElements.forEach((element) => {
   observer.observe(element);
 });
 
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+  const button = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer");
+
+  button.addEventListener("click", () => {
+    const isOpen = item.classList.contains("active");
+
+    faqItems.forEach((otherItem) => {
+      const otherButton = otherItem.querySelector(".faq-question");
+      const otherAnswer = otherItem.querySelector(".faq-answer");
+
+      otherItem.classList.remove("active");
+      otherButton.setAttribute("aria-expanded", "false");
+      otherAnswer.style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add("active");
+      button.setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
+
 const contactForm = document.getElementById("contactForm");
 const messageInput = document.getElementById("message");
 const messageCount = document.getElementById("messageCount");
 const formStatus = document.getElementById("formStatus");
+const formSubmitButton = document.getElementById("formSubmitButton");
 
-/*
-  IMPORTANT:
-  Replace this with your real backend / form endpoint later.
-  Example:
-  const CONTACT_ENDPOINT = "https://your-endpoint-here";
-*/
 const CONTACT_ENDPOINT = "";
+
+function setFieldState(field, errorElement, message = "") {
+  if (!field || !errorElement) return;
+
+  field.classList.remove("input-invalid", "input-valid");
+
+  if (message) {
+    field.classList.add("input-invalid");
+    errorElement.textContent = message;
+  } else if (field.value.trim()) {
+    field.classList.add("input-valid");
+    errorElement.textContent = "";
+  } else {
+    errorElement.textContent = "";
+  }
+}
 
 if (messageInput && messageCount) {
   const updateCount = () => {
@@ -68,39 +105,77 @@ if (messageInput && messageCount) {
 }
 
 if (contactForm) {
+  const nameField = document.getElementById("name");
+  const emailField = document.getElementById("email");
+  const messageField = document.getElementById("message");
+  const websiteField = document.getElementById("website");
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateForm = () => {
+    let isValid = true;
+
+    const name = nameField.value.trim();
+    const email = emailField.value.trim();
+    const message = messageField.value.trim();
+
+    if (!name) {
+      setFieldState(nameField, nameError, "Please enter your name.");
+      isValid = false;
+    } else {
+      setFieldState(nameField, nameError, "");
+    }
+
+    if (!email) {
+      setFieldState(emailField, emailError, "Please enter your email.");
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      setFieldState(emailField, emailError, "Please enter a valid email address.");
+      isValid = false;
+    } else {
+      setFieldState(emailField, emailError, "");
+    }
+
+    if (!message) {
+      setFieldState(messageField, messageError, "Please enter your message.");
+      isValid = false;
+    } else if (message.length > 1000) {
+      setFieldState(messageField, messageError, "Your message is too long.");
+      isValid = false;
+    } else {
+      setFieldState(messageField, messageError, "");
+    }
+
+    return isValid;
+  };
+
+  [nameField, emailField, messageField].forEach((field) => {
+    field?.addEventListener("blur", validateForm);
+    field?.addEventListener("input", () => {
+      if (field === nameField) setFieldState(nameField, nameError, "");
+      if (field === emailField) setFieldState(emailField, emailError, "");
+      if (field === messageField) setFieldState(messageField, messageError, "");
+    });
+  });
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-
-    const name = document.getElementById("name")?.value.trim() || "";
-    const email = document.getElementById("email")?.value.trim() || "";
-    const message = document.getElementById("message")?.value.trim() || "";
-    const website = document.getElementById("website")?.value.trim() || "";
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     formStatus.textContent = "";
     formStatus.className = "form-status";
 
-    if (website) {
+    if (websiteField?.value.trim()) {
       formStatus.textContent = "Invalid submission.";
       formStatus.classList.add("error");
       return;
     }
 
-    if (!name || !email || !message) {
-      formStatus.textContent = "Please fill in all required fields.";
-      formStatus.classList.add("error");
-      return;
-    }
-
-    if (!emailPattern.test(email)) {
-      formStatus.textContent = "Please enter a valid email address.";
-      formStatus.classList.add("error");
-      return;
-    }
-
-    if (message.length > 1000) {
-      formStatus.textContent = "Your message is too long.";
+    if (!validateForm()) {
+      formStatus.textContent = "Please correct the highlighted fields.";
       formStatus.classList.add("error");
       return;
     }
@@ -113,6 +188,11 @@ if (contactForm) {
     }
 
     try {
+      if (formSubmitButton) {
+        formSubmitButton.disabled = true;
+        formSubmitButton.textContent = "Sending...";
+      }
+
       const formData = new FormData(contactForm);
 
       const response = await fetch(CONTACT_ENDPOINT, {
@@ -128,6 +208,15 @@ if (contactForm) {
       }
 
       contactForm.reset();
+
+      [nameField, emailField, messageField].forEach((field) => {
+        field.classList.remove("input-invalid", "input-valid");
+      });
+
+      [nameError, emailError, messageError].forEach((errorField) => {
+        if (errorField) errorField.textContent = "";
+      });
+
       if (messageCount) {
         messageCount.textContent = "0 / 1000";
       }
@@ -138,6 +227,11 @@ if (contactForm) {
       formStatus.textContent =
         "Something went wrong. Please try again later.";
       formStatus.classList.add("error");
+    } finally {
+      if (formSubmitButton) {
+        formSubmitButton.disabled = false;
+        formSubmitButton.textContent = "Envoyer le message";
+      }
     }
   });
 }
