@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Calina Accompagnement</title>
+  <meta
+    name="description"
+    content="Learn more about Calina Accompagnement and the spirit of this space."
+  />
+  <link rel="icon" type="image/x-icon" href="../assets/images/calina-logo.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrapper">
-      <a href="../index.html" class="brand">
-        <span class="brand-script">Calina</span>
-        <span class="brand-subtitle">Accompagnement</span>
+      <a href="../index.html" class="brand" aria-label="Back to home">
+        <img
+          src="../assets/images/calina-logo.webp"
+          alt="Calina Accompagnement logo"
+          class="brand-logo"
+        />
       </a>
 
       <button
@@ -27,70 +41,88 @@
       </button>
 
       <nav class="site-nav" id="siteNav">
-        <a href="../index.html">Welcome</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">To book</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <a href="../index.html">Home</a>
+  <a href="about.html" aria-current="page">About</a>
+  <a href="booking.html">To book</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</nav>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero reveal">
       <div class="container">
         <p class="eyebrow">About</p>
-        <h1>About Calina</h1>
+        <h1>About this space</h1>
         <p class="hero-description">
-          This page will introduce the practitioner, her values, and the spirit
-          behind the support she offers.
+          An approach conceived as a place of presence, gentleness, clarity and
+          listening to encounter what is happening within you.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container two-column">
-        <div class="content-box">
-          <h3>Who she is</h3>
+    <section class="section reveal">
+      <div class="container booking-grid">
+        <div class="content-box reveal">
+          <h3>Who I am</h3>
           <p>
-            Placeholder text for the client’s personal introduction, background,
-            and the intention behind the service.
+            This page can present Calina’s journey, sensitivity, values and
+            intention, in a simple, warm and human style of writing.
           </p>
         </div>
 
-        <div class="content-box">
-          <h3>Her intention</h3>
+        <div class="content-box reveal reveal-delay-1">
+          <h3>The intention of the accompaniment</h3>
           <p>
-            Placeholder text for values such as calm, safety, clarity, presence,
-            and emotional support.
+            This space is designed to offer an environment where the person can
+            feel more inner security, and be met with presence and respect.
           </p>
         </div>
-      </div>
-    </section>
 
-    <section class="section alt-section">
-      <div class="container">
-        <h2>The approach</h2>
-        <div class="content-box">
+        <div class="content-box reveal reveal-delay-2">
+          <h3>The values</h3>
           <p>
-            This section can later include the client’s approach, philosophy,
-            and the way the support space is held.
+            Presence, listening, delicacy, the rhythm of life, inner security
+            and coherence between emotional experience and faith can be
+            developed here.
+          </p>
+        </div>
+
+        <div class="content-box reveal reveal-delay-3">
+          <h3>The frame</h3>
+          <p>
+            This section can later explain how a meeting unfolds, the
+            atmosphere of the space, and what makes this support unique.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="container footer-grid">
-      <div>
-        <h3>Calina Accompagnement</h3>
-        <p>Site currently being created in VS Code.</p>
+      <div class="footer-disclaimer reveal">
+        <p>
+          En accédant à ce site web, vous reconnaissez que je ne suis pas
+          psychologue, médecin, ni professionnelle de la santé mentale reconnue
+          par un ordre professionnel au Québec. Je n'offre pas de services de
+          psychothérapie au sens de la <strong>Loi 21</strong>, et mon
+          accompagnement ne constitue ni un traitement médical ni un conseil
+          psychologique.
+        </p>
       </div>
 
-      <div>
+      <div class="footer-contact reveal reveal-delay-1">
         <h3>Contact</h3>
-        <p>Email and phone number to be added</p>
+        <div class="footer-contact-lines">
+          <p>
+            <a href="mailto:calina.arenas@gmail.com">calina.arenas@gmail.com</a>
+          </p>
+          <p>
+            <a href="tel:4388040672">438-804-0672</a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>

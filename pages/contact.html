@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Calina Accompagnement</title>
+  <meta
+    name="description"
+    content="Entrer en contact avec Calina Accompagnement."
+  />
+  <link rel="icon" type="image/x-icon" href="../assets/images/calina-logo.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrapper">
-      <a href="../index.html" class="brand">
-        <span class="brand-script">Calina</span>
-        <span class="brand-subtitle">Accompagnement</span>
+      <a href="../index.html" class="brand" aria-label="Back to home">
+        <img
+          src="../assets/images/calina-logo.webp"
+          alt="Calina Accompagnement logo"
+          class="brand-logo"
+        />
       </a>
 
       <button
@@ -27,59 +41,159 @@
       </button>
 
       <nav class="site-nav" id="siteNav">
-        <a href="../index.html">Welcome</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">To book</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="booking.html">To book</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html" aria-current="page">Contact</a>
+</nav>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero reveal">
       <div class="container">
         <p class="eyebrow">Contact</p>
-        <h1>Get in touch</h1>
+        <h1>Entrer en contact</h1>
         <p class="hero-description">
-          This page helps visitors contact the practitioner directly for
-          questions, clarity, or booking support.
+          Pour une question, un éclaircissement ou pour réserver un espace,
+          tu peux écrire directement à Calina.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container two-column">
-        <div class="content-box">
-          <h3>Contact details</h3>
-          <p>Email: to be added</p>
-          <p>Phone: to be added</p>
-          <p>Hours: to be added</p>
+    <section class="section reveal">
+      <div class="container contact-top-grid">
+        <div class="content-box reveal">
+          <h3>Coordonnées</h3>
+          <p>
+            Courriel :
+            <a href="mailto:calina.arenas@gmail.com">calina.arenas@gmail.com</a><br />
+            Téléphone :
+            <a href="tel:4388040672">438-804-0672</a>
+          </p>
         </div>
 
-        <div class="content-box">
-          <h3>Next step</h3>
+        <div class="content-box reveal reveal-delay-1">
+          <h3>Réservation</h3>
           <p>
-            Visitors will be able to contact the practitioner directly or follow
-            the booking link once the final content is added.
+            Si tu préfères, tu peux aussi passer par la page de réservation
+            pour consulter les modalités de l’accompagnement et les détails
+            pratiques.
           </p>
-          <br />
-          <a class="btn btn-primary" href="booking.html">Go to booking</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-quote-section reveal">
+      <div class="container">
+        <div class="floating-quote reveal reveal-delay-1">
+          <p>
+            “Tu n’as pas besoin d’avoir toutes les réponses pour commencer.
+            Parfois, le premier pas consiste simplement à te permettre d’écrire.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section reveal">
+      <div class="container contact-form-panel">
+        <div class="content-box form-box reveal">
+          <h3>Laisse-nous un message</h3>
+          <p class="form-intro">
+            Écris-nous ici, et nous te répondrons dès que possible.
+          </p>
+
+          <form id="contactForm" class="contact-form" novalidate>
+            <input
+              type="text"
+              name="website"
+              id="website"
+              class="hp-field"
+              autocomplete="off"
+              tabindex="-1"
+            />
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Nom</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  maxlength="100"
+                  placeholder="Ton nom"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="email">Courriel</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  maxlength="120"
+                  placeholder="toncourriel@email.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                maxlength="1000"
+                placeholder="Écris ton message ici..."
+                required
+              ></textarea>
+              <div class="form-meta">
+                <small id="messageCount">0 / 1000</small>
+              </div>
+            </div>
+
+            <p class="form-note">
+              En envoyant ce message, tu acceptes d’être recontactée par courriel.
+            </p>
+
+            <div class="form-actions">
+              <button type="submit" class="booking-button form-submit">
+                Envoyer le message
+              </button>
+              <p id="formStatus" class="form-status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="container footer-grid">
-      <div>
-        <h3>Calina Accompagnement</h3>
-        <p>Site currently being created in VS Code.</p>
+      <div class="footer-disclaimer reveal">
+        <p>
+          En accédant à ce site web, vous reconnaissez que je ne suis pas
+          psychologue, médecin, ni professionnelle de la santé mentale reconnue
+          par un ordre professionnel au Québec. Je n'offre pas de services de
+          psychothérapie au sens de la <strong>Loi 21</strong>, et mon
+          accompagnement ne constitue ni un traitement médical ni un conseil
+          psychologique.
+        </p>
       </div>
 
-      <div>
+      <div class="footer-contact reveal reveal-delay-1">
         <h3>Contact</h3>
-        <p>Email and phone number to be added</p>
+        <div class="footer-contact-lines">
+          <p>
+            <a href="mailto:calina.arenas@gmail.com">calina.arenas@gmail.com</a>
+          </p>
+          <p>
+            <a href="tel:4388040672">438-804-0672</a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>

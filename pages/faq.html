@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | Calina Accompagnement</title>
+  <meta
+    name="description"
+    content="Questions fréquentes au sujet de l’accompagnement avec Calina."
+  />
+  <link rel="icon" type="image/x-icon" href="../assets/images/calina-logo.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrapper">
-      <a href="../index.html" class="brand">
-        <span class="brand-script">Calina</span>
-        <span class="brand-subtitle">Accompagnement</span>
+      <a href="../index.html" class="brand" aria-label="Back to home">
+        <img
+          src="../assets/images/calina-logo.webp"
+          alt="Calina Accompagnement logo"
+          class="brand-logo"
+        />
       </a>
 
       <button
@@ -27,62 +41,87 @@
       </button>
 
       <nav class="site-nav" id="siteNav">
-        <a href="../index.html">Welcome</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">To book</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="booking.html">To book</a>
+  <a href="faq.html" aria-current="page">FAQ</a>
+  <a href="contact.html">Contact</a>
+</nav>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero reveal">
       <div class="container">
         <p class="eyebrow">FAQ</p>
-        <h1>Frequently asked questions</h1>
+        <h1>Questions fréquentes</h1>
         <p class="hero-description">
-          This page answers common questions clearly and helps visitors feel
-          more informed before booking.
+          Quelques repères simples pour clarifier ce qu’est cet espace, ce qu’il
+          offre, et la manière dont l’accompagnement peut se vivre.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container stack">
-        <div class="content-box">
-          <h3>Who is this support for?</h3>
-          <p>Placeholder answer to be replaced with the client’s final text.</p>
-        </div>
+    <section class="section reveal">
+  <div class="container stack faq-stack">
+    <div class="content-box reveal">
+      <h3>Is this therapy?</h3>
+      <p>
+        No. This support is not psychotherapy or medical treatment. It is a
+        space for listening, presence, and support.
+      </p>
+    </div>
 
-        <div class="content-box">
-          <h3>Is this therapy?</h3>
-          <p>Placeholder answer to be replaced with the client’s final text.</p>
-        </div>
+    <div class="content-box reveal reveal-delay-1">
+      <h3>Who is this space intended for?</h3>
+      <p>
+        It is aimed at Muslim women who feel the need for a gentler, clearer
+        and safer environment to share what they are experiencing.
+      </p>
+    </div>
 
-        <div class="content-box">
-          <h3>How do online sessions work?</h3>
-          <p>Placeholder answer to be replaced with the client’s final text.</p>
-        </div>
+    <div class="content-box reveal reveal-delay-2">
+      <h3>How do the meetings take place?</h3>
+      <p>
+        The meetings take place online via Zoom, in individual format, in a
+        setting designed for presence, listening and respecting the pace.
+      </p>
+    </div>
 
-        <div class="content-box">
-          <h3>How can I book?</h3>
-          <p>Placeholder answer to be replaced with the client’s final text.</p>
-        </div>
-      </div>
-    </section>
+    <div class="content-box reveal reveal-delay-3">
+      <h3>How can I make a reservation?</h3>
+      <p>
+        You can book via the official link that will be added here, or contact
+        Calina directly by email to receive the necessary information.
+      </p>
+    </div>
+  </div>
+</section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="container footer-grid">
-      <div>
-        <h3>Calina Accompagnement</h3>
-        <p>Site currently being created in VS Code.</p>
+      <div class="footer-disclaimer">
+        <p>
+          En accédant à ce site web, vous reconnaissez que je ne suis pas
+          psychologue, médecin, ni professionnelle de la santé mentale reconnue
+          par un ordre professionnel au Québec. Je n'offre pas de services de
+          psychothérapie au sens de la <strong>Loi 21</strong>, et mon
+          accompagnement ne constitue ni un traitement médical ni un conseil
+          psychologique.
+        </p>
       </div>
 
-      <div>
+      <div class="footer-contact">
         <h3>Contact</h3>
-        <p>Email and phone number to be added</p>
+        <div class="footer-contact-lines">
+          <p>
+            <a href="mailto:calina.arenas@gmail.com">calina.arenas@gmail.com</a>
+          </p>
+          <p>
+            <a href="tel:4388040672">438-804-0672</a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>
